@@ -1,4 +1,4 @@
-pragma solidity ^0.4.10;
+pragma solidity ^0.5.16;
 
 
 /**
@@ -44,13 +44,13 @@ contract WeiboAccount {
     }
 
     // 根据ID查找微博
-    function getWeibo(uint weiboId) constant returns (string weiboString, uint timestamp) {
+    function getWeibo(uint weiboId) public view returns (string weiboString, uint timestamp) {
         weiboString = _weibos[weiboId].weiboString;
         timestamp = _weibos[weiboId].timestamp;
     }
 
     // 返回最新一条微博
-    function getLatestWeibo() constant returns (string weiboString, uint timestamp, uint numberOfWeibos) {
+    function getLatestWeibo() public view returns (string weiboString, uint timestamp, uint numberOfWeibos) {
         // returns three values
         weiboString = _weibos[_numberOfWeibos - 1].weiboString;
         timestamp = _weibos[_numberOfWeibos - 1].timestamp;
@@ -58,12 +58,12 @@ contract WeiboAccount {
     }
 
     //返回微博账户所有者
-    function getOwnerAddress() constant returns (address adminAddress) {
+    function getOwnerAddress() public view returns (address adminAddress) {
         return _adminAddress;
     }
 
     // 返回微博总数
-    function getNumberOfWeibos() constant returns (uint numberOfWeibos) {
+    function getNumberOfWeibos() public view returns (uint numberOfWeibos) {
         return _numberOfWeibos;
     }
 

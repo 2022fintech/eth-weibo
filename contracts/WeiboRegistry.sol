@@ -1,4 +1,4 @@
-pragma solidity ^0.4.10;
+pragma solidity ^0.5.16;
 
 
 /**
@@ -53,22 +53,22 @@ contract WeiboRegistry {
     }
 
     // 返回已注册账户数量
-    function getNumberOfAccounts() constant returns (uint numberOfAccounts) {
+    function getNumberOfAccounts() public view returns (uint numberOfAccounts) {
         numberOfAccounts = _numberOfAccounts;
     }
 
     // 返回昵称对应的微博账户地址
-    function getAddressOfName(string name) constant returns (address addr) {
+    function getAddressOfName(string name) public view returns (address addr) {
         addr = _accountNameToAddress[name];
     }
 
     // 返回微博账户地址对应的昵称
-    function getNameOfAddress(address addr) constant returns (string name) {
+    function getNameOfAddress(address addr) public view returns (string name) {
         name = _addressToAccountName[addr];
     }
 
     // 根据id 返回账户
-    function getAddressOfId(uint id) constant returns (address addr) {
+    function getAddressOfId(uint id) public view returns (address addr) {
         addr = _accountIdToAccountAddress[id];
     }
 
